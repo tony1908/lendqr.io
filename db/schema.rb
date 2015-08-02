@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802043031) do
+ActiveRecord::Schema.define(version: 20150802052251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.float    "cantidad"
+    t.integer  "user_id"
+    t.string   "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "codes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "code"
+    t.float    "cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -35,6 +51,24 @@ ActiveRecord::Schema.define(version: 20150802043031) do
 
   add_index "companies", ["email"], name: "index_companies_on_email", unique: true, using: :btree
   add_index "companies", ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true, using: :btree
+
+  create_table "money", force: :cascade do |t|
+    t.integer  "company_id"
+    t.float    "cantidad"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "records", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "company_id"
+    t.float    "cantidad"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  company_id: 1
+  cantidad: 1.5
+  latitude: 1.5
+  longitude: 1.5
+  name: 
+
+two:
+  user_id: 1
+  company_id: 1
+  cantidad: 1.5
+  latitude: 1.5
+  longitude: 1.5
+  name: 
