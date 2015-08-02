@@ -58,7 +58,7 @@ class PrestamoController < ApplicationController
   # 	puts array.length
   # 	end
   	
-  end
+  #end
 
 	def newCode
 		account_sid = 'AC4be349f804e4ae042e9fc9d5c4a3ae98'
